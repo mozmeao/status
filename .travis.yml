@@ -4,7 +4,7 @@ node_js:
 env:
   global:
     - STAGING_REPOSITORY=mozmar/status.ramzom.org
-    - DEVELOP_REPOSITORY=mozmar/status.mozmar.org
+    - PRODUCTION_REPOSITORY=mozmar/status.mozmar.org
 before_install:
   - cd ./local-dev/
 install:
@@ -13,8 +13,15 @@ script:
   - npm test
 deploy:
   - provider: script
-    script: cd ${TRAVIS_BUILD_DIR} && ./bin/update-stage.sh
+    script: cd ${TRAVIS_BUILD_DIR} && ./bin/update.sh ${STAGING_REPOSITORY}
     skip_cleanup: true
     on:
-      branch: develop
-      repo: mozmar/status.mozmar.org
+      branch: master
+      repo: mozmar/status
+  - provider: script
+    script: cd ${TRAVIS_BUILD_DIR} && ./bin/update.sh ${PRODUCTION_REPOSITORY}
+    skip_cleanup: true
+    on:
+      tag: true
+      repo: mozmar/status
+      condition: $(echo ${TRAVIS_TAG} | egrep "^201[6-9][0-9]{4}.[0-9]+")
