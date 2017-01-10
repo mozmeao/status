@@ -22,6 +22,6 @@ deploy:
     script: cd ${TRAVIS_BUILD_DIR} && ./bin/update.sh ${PRODUCTION_REPOSITORY}
     skip_cleanup: true
     on:
-      tag: true
+      tags: true
       repo: mozmar/status
       condition: $(echo ${TRAVIS_TAG} | egrep "^201[6-9][0-9]{4}.[0-9]+")
