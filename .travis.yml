@@ -3,8 +3,8 @@ node_js:
   - "6"
 env:
   global:
-    - STAGING_REPOSITORY=mozmar/status.ramzom.org
-    - PRODUCTION_REPOSITORY=mozmar/status.mozmar.org
+    - STAGING_REPOSITORY=mozmeao/status.ramzom.org
+    - PRODUCTION_REPOSITORY=mozmeao/status.mozmar.org
 before_install:
   - cd ./local-dev/
 install:
@@ -17,11 +17,11 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-      repo: mozmar/status
+      repo: mozmeao/status
   - provider: script
     script: cd ${TRAVIS_BUILD_DIR} && ./bin/update.sh ${PRODUCTION_REPOSITORY}
     skip_cleanup: true
     on:
       tags: true
-      repo: mozmar/status
+      repo: mozmeao/status
       condition: $(echo ${TRAVIS_TAG} | egrep "^201[6-9][0-9]{4}.[0-9]+")
