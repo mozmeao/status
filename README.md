@@ -14,7 +14,7 @@ function is triggered every minute via ``CloudWatch Events`` and starts by
 collecting the data. Then it compares the processed information against
 `status.yml` located in the Git repository of each deployment
 (e.g.
-[prod](https://github.com/mozmar/status.mozmar.org/blob/master/status.yml)) and
+[prod](https://github.com/mozmeao/status.mozmar.org/blob/master/status.yml)) and
 if there are differences it commits them to the repository.
 
 Currently data is collected from:
