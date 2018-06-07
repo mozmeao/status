@@ -1,6 +1,6 @@
 # Status Dashboard for MozMEAO
 
-**This project is no longer in development or in use **
+**This project is no longer in development or in use**
 
 View the dashboard
 
