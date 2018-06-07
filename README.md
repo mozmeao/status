@@ -1,5 +1,7 @@
 # Status Dashboard for MozMEAO
 
+**This project is no longer in development or in use **
+
 View the dashboard
 
 [Stage](http://status.ramzom.org) | [Production](http://status.mozmar.org)
